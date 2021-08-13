@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
     private fun createMainList(): List<MainItemContainer> =
         listOf(
             MainItemContainer(titleHead = TitleHead(getString(R.string.title)), someCard = null, someListItem = null),
-            MainItemContainer(titleHead = null, someCard = SomeCard(CardColor.COLOR_1), someListItem = null),
             MainItemContainer(titleHead = null, someCard = SomeCard(CardColor.COLOR_2), someListItem = null),
             MainItemContainer(titleHead = null, someCard = SomeCard(CardColor.COLOR_3), someListItem = null),
             MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),

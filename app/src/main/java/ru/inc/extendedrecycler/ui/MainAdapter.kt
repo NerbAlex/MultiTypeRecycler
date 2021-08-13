@@ -45,6 +45,6 @@ class MainAdapter : RecyclerView.Adapter<BaseViewHolder>() {
             list[position].titleHead != null -> TYPE_TITLE
             list[position].someCard != null -> TYPE_CARD
             list[position].someListItem != null -> TYPE_ID
-            else -> throw java.lang.IllegalArgumentException("unknown type")
+            else -> throw IllegalArgumentException("unknown position")
         }
 }
