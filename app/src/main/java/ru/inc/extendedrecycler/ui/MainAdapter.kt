@@ -7,6 +7,9 @@ import ru.inc.extendedrecycler.databinding.ItemSomeCardBinding
 import ru.inc.extendedrecycler.databinding.ItemSomeListBinding
 import ru.inc.extendedrecycler.databinding.ItemTitleHeadBinding
 import ru.inc.extendedrecycler.models.MainItemContainer
+import ru.inc.extendedrecycler.models.MainItemContainer.Companion.CARD_TYPE
+import ru.inc.extendedrecycler.models.MainItemContainer.Companion.ID_TYPE
+import ru.inc.extendedrecycler.models.MainItemContainer.Companion.TITLE_TYPE
 import ru.inc.extendedrecycler.ui.viewholders.BaseViewHolder
 import ru.inc.extendedrecycler.ui.viewholders.CardViewHolder
 import ru.inc.extendedrecycler.ui.viewholders.IdViewHolder
@@ -23,9 +26,9 @@ class MainAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            MainItemContainer.TITLE_TYPE -> TitleViewHolder(ItemTitleHeadBinding.inflate(inflater, parent, false))
-            MainItemContainer.CARD_TYPE -> CardViewHolder(ItemSomeCardBinding.inflate(inflater, parent, false))
-            MainItemContainer.ID_TYPE -> IdViewHolder(ItemSomeListBinding.inflate(inflater, parent, false))
+            TITLE_TYPE -> TitleViewHolder(ItemTitleHeadBinding.inflate(inflater, parent, false))
+            CARD_TYPE -> CardViewHolder(ItemSomeCardBinding.inflate(inflater, parent, false))
+            ID_TYPE -> IdViewHolder(ItemSomeListBinding.inflate(inflater, parent, false))
             else -> throw IllegalArgumentException("Unknown type")
         }
     }
