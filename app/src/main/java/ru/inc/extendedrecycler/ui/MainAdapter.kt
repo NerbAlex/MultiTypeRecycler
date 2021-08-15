@@ -24,12 +24,13 @@ class MainAdapter : RecyclerView.Adapter<BaseViewHolder>() {
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        return when (viewType) {
-            TITLE_TYPE -> TitleViewHolder(ItemTitleHeadBinding.inflate(inflater, parent, false))
-            CARD_TYPE -> CardViewHolder(ItemSomeCardBinding.inflate(inflater, parent, false))
-            ID_TYPE -> IdViewHolder(ItemSomeListBinding.inflate(inflater, parent, false))
-            else -> throw IllegalArgumentException("Unknown type")
+        LayoutInflater.from(parent.context).let {
+            return when (viewType) {
+                TITLE_TYPE -> TitleViewHolder(ItemTitleHeadBinding.inflate(it, parent, false))
+                CARD_TYPE -> CardViewHolder(ItemSomeCardBinding.inflate(it, parent, false))
+                ID_TYPE -> IdViewHolder(ItemSomeListBinding.inflate(it, parent, false))
+                else -> throw IllegalArgumentException("Unknown type")
+            }
         }
     }
 
