@@ -14,12 +14,6 @@ import ru.inc.extendedrecycler.ui.viewholders.TitleViewHolder
 
 class MainAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
-    companion object {
-        const val TYPE_TITLE = 0
-        const val TYPE_CARD = 1
-        const val TYPE_ID = 2
-    }
-
     var list: List<MainItemContainer> = mutableListOf()
         set(value) {
             field = value
@@ -29,9 +23,9 @@ class MainAdapter : RecyclerView.Adapter<BaseViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         return when (viewType) {
-            TYPE_TITLE -> TitleViewHolder(ItemTitleHeadBinding.inflate(inflater, parent, false))
-            TYPE_CARD -> CardViewHolder(ItemSomeCardBinding.inflate(inflater, parent, false))
-            TYPE_ID -> IdViewHolder(ItemSomeListBinding.inflate(inflater, parent, false))
+            MainItemContainer.TITLE_TYPE -> TitleViewHolder(ItemTitleHeadBinding.inflate(inflater, parent, false))
+            MainItemContainer.CARD_TYPE -> CardViewHolder(ItemSomeCardBinding.inflate(inflater, parent, false))
+            MainItemContainer.ID_TYPE -> IdViewHolder(ItemSomeListBinding.inflate(inflater, parent, false))
             else -> throw IllegalArgumentException("Unknown type")
         }
     }
@@ -40,11 +34,5 @@ class MainAdapter : RecyclerView.Adapter<BaseViewHolder>() {
 
     override fun getItemCount() = list.size
 
-    override fun getItemViewType(position: Int): Int =
-        when {
-            list[position].titleHead != null -> TYPE_TITLE
-            list[position].someCard != null -> TYPE_CARD
-            list[position].someListItem != null -> TYPE_ID
-            else -> throw IllegalArgumentException("unknown position")
-        }
+    override fun getItemViewType(position: Int) = list[position].getType()
 }

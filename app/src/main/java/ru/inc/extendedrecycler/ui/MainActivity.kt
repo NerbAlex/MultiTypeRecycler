@@ -30,23 +30,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun createMainList(): List<MainItemContainer> =
         listOf(
-            MainItemContainer(titleHead = TitleHead(getString(R.string.title)), someCard = null, someListItem = null),
-            MainItemContainer(titleHead = null, someCard = SomeCard(CardColor.COLOR_2), someListItem = null),
-            MainItemContainer(titleHead = null, someCard = SomeCard(CardColor.COLOR_3), someListItem = null),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-            MainItemContainer(titleHead = null, someCard = null, someListItem = SomeListItem(randomId())),
-        )
+            TitleHead(getString(R.string.title)),
+            SomeCard(CardColor.COLOR_2),
+            SomeCard(CardColor.COLOR_3),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId()),
+            SomeListItem(randomId())
+            )
 
     private fun randomId(): Int = Random.nextInt()
 }
